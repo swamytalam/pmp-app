@@ -1,0 +1,22 @@
+<h2>Resources</h2>
+<hr />
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>Resource ID </th>
+      <th>Frist Name</th>
+      <th>Last Name</th>
+      <th>Generic Name</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let resource of resources">
+      <td> {{ resource.id }} </td>
+      <td> {{ resource.fname }} </td>
+      <td> {{ resource.lname }} </td>
+      <td> {{ resource.generic_name }} </td>
+      <td> {{ resource.title }} </td>
+    </tr>
+  </tbody>
+</table>

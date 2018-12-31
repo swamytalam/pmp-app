@@ -1,0 +1,22 @@
+.table {
+    border-spacing: 2px;
+    border-collapse: separate;
+    font-family: Arial;
+    font-size: 14px;
+    text-align: left;
+  }
+  
+  .thead {
+    background-color: #DDDDDD;
+    line-height: 30px;
+    border: 1px;
+  }
+  
+  .tr-odd {
+    background-color: #DDDDDD
+  }
+  
+  .tr-even {
+    background-color: #FFFFFF
+  }
+  

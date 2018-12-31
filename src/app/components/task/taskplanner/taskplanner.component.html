@@ -1,0 +1,65 @@
+<h2> Create Task </h2>
+<div>
+  <form #taskForm="ngForm" (ngSubmit)="createTask()">
+
+    <div class="form-group">
+      <label>Name: </label>
+      <input type="text" name="name" required size="100" [(ngModel)]="model.name" />
+    </div>
+
+    <div class="form-group">
+      <label>Project: </label>
+      <input type="text" name="project" readonly [(ngModel)]="project_id" />
+    </div>
+
+    <div class="form-group">
+      <label>Milestone: </label>
+      <select name="milestone" [(ngModel)]="model.milestone_id">
+        <option [ngValue]="null" disabled>Choose Milestone</option>
+        <option *ngFor="let ms of milestones" [value]="ms.id">
+          {{ ms.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label> Department: </label>
+      <select name="department" [(ngModel)]="department">
+        <option [ngValue]="null" disabled>Choose Department</option>
+        <option *ngFor="let dept of departments" [value]="dept.id">
+          {{ dept.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label> Resource: </label>
+      <select name="resource" [(ngModel)]="model.resource_id">
+        <option [ngValue]="null" disabled>Choose Resource</option>
+        <option *ngFor="let rs of resources" [value]="rs.id">
+          {{ rs.fname }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label> Planned Start Date: </label>
+      <input type="text" name="planned_start_date" [(ngModel)]="model.planned_start_date" />
+    </div>
+
+    <div class="form-group">
+      <label> Planned End Date: </label>
+      <input type="text" name="planned_end_date" [(ngModel)]="model.planned_end_date">
+    </div>
+
+    <div class="form-group">
+      <label> Status: </label>
+      <input type="text" name="status" [(ngModel)]="model.status" />
+    </div>
+
+    <div class="form-group">
+      <button type="submit">Submit</button>
+    </div>
+
+  </form>
+</div>

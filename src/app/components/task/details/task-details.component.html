@@ -1,0 +1,59 @@
+<div *ngFor="let task of tasks">
+  <table>
+    <tr>
+      <td colspan="2"> <b>Name: </b> {{ task.name }} </td>
+    </tr>
+    <tr>
+      <td>
+        <b> Planned Start Date : </b>{{ task.planned_start_date }}
+      </td>
+      <td>
+        <b> Planned End Date : </b>{{ task.planned_end_date }}
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <b> Actual Start Date : </b>{{ task.actual_start_date }}
+      </td>
+      <td>
+        <b> Actual End Date : </b>{{ task.actual_end_date }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b> Resource : </b>{{ task.fname }}, {{ task.lname}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b> Status : </b>{{ task.status }}
+      </td>
+    </tr>
+    <tr>
+      <td> <button name="log" (click)="getTaskLog()">Log</button> </td>
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="showTaskLog">
+  <form #logForm (ngSubmit)="saveTaskLog()">
+    <div class="form-group">
+      <textarea rows="20" cols="100" name="log" [(ngModel)]="log">
+    </textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit">Save</button>
+    </div>
+  </form>
+
+  <div *ngFor="let log of taskLog">
+    <b> Status: </b>{{ log.status}} <br />
+    <b> Log: </b>{{ log.log}} <br />
+    <b> Date: </b> {{ log.created_date}}
+    <hr />
+
+  </div>
+
+
+</div>
