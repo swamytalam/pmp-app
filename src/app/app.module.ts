@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,10 @@ import { ProjectDetailsComponent } from './components/project/details/project-de
 import { TaskplannerComponent } from './components/task/taskplanner/taskplanner.component';
 import { ResourcePovComponent } from './components/resource/pov/pov.component';
 import { TaskDetailsComponent } from './components/task/details/task-details.component';
+import { WorkingDayListComponent } from './components/working-day/list/working-day-list.component';
+import { HolidayListComponent } from './components/holiday/list/holiday-list.component';
+import { TitleListComponent } from './components/title/list/title-list.component';
+import { AllocationListComponent } from './components/allocation/list/allocation-list.component';
 
 @NgModule({
   declarations: [
@@ -30,15 +34,19 @@ import { TaskDetailsComponent } from './components/task/details/task-details.com
     ProjectDetailsComponent,
     TaskplannerComponent,
     ResourcePovComponent,
-    TaskDetailsComponent
+    TaskDetailsComponent,
+    WorkingDayListComponent,
+    HolidayListComponent,
+    TitleListComponent,
+    AllocationListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

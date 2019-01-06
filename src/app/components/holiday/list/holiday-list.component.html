@@ -1,0 +1,20 @@
+<h2>Holidays</h2>
+<hr />
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>ID</th>
+      <th>Type</th>
+      <th>Month</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let holiday of holidays; let i =index">
+      <td> {{ holiday.id }} </td>
+      <td> {{ holiday.name }} </td>
+      <td> {{ holiday.month }} </td>
+      <td> {{ holiday.date }} </td>
+    </tr>
+  </tbody>
+</table>

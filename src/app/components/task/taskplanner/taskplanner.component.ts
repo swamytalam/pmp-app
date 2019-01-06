@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Milestone } from 'src/app/models/milestone';
-import { Department } from 'src/app/models/department';
-import { Resource } from 'src/app/models/resource';
+import { Milestone } from '../../../models/milestone';
+import { Department } from '../../../models/department';
+import { Resource } from '../../../models/resource';
 import { FormGroup, FormControl } from '@angular/forms';
-import { DataService } from 'src/app/services/data.service';
+import { DataService } from '../../../services/data.service';
 import { Task } from '../../../models/task';
 
 @Component({

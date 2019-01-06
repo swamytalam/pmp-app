@@ -5,13 +5,16 @@ var bodyParser = require("body-parser");
 // use it before all route definitions
 //app.use(cors({origin: 'http://localhost:4200'}));
 
-var projectRoutes = require('./routes/projects');
-var milestoneRoutes = require('./routes/milestones');
-var taskRoutes = require('./routes/tasks');
-var resourceRoutes = require('./routes/resources');
-var departmentRoutes = require('./routes/departments');
+var projectRouter = require('./routes/projects');
+var milestoneRouter = require('./routes/milestones');
+var taskRouter = require('./routes/tasks');
+var resourceRouter = require('./routes/resources');
+var departmentRouter = require('./routes/departments');
 var resourcePOVRouter = require('./routes/resource-pov');
-
+var holidayRouter = require('./routes/holidays');
+var workingdayRouter = require('./routes/workingdays');
+var titleRouter = require('./routes/titles');
+var allocationRouter = require('./routes/allocations');
 
 var app = express();
 
@@ -20,16 +23,20 @@ app.use(express.static('public'))
 
 // Setting Base directory
 app.use(bodyParser.json());
-app.use('/api/projects/', projectRoutes);
-app.use('/api/milestones/', milestoneRoutes);
-app.use('/api/tasks/', taskRoutes);
-app.use('/api/resources', resourceRoutes);
-app.use('/api/departments', departmentRoutes);
+app.use('/api/projects/', projectRouter);
+app.use('/api/milestones/', milestoneRouter);
+app.use('/api/tasks/', taskRouter);
+app.use('/api/resources', resourceRouter);
+app.use('/api/departments', departmentRouter);
 app.use('/api/resource-pov', resourcePOVRouter);
+app.use('/api/holidays', holidayRouter);
+app.use('/api/working-days', workingdayRouter);
+app.use('/api/titles', titleRouter);
+app.use('/api/allocations', allocationRouter);
 
     //CORS for Middleware
 app.use(function (req, res, next) {
-  //Enabling CORS 
+  //Enabling CORS
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, contentType,Content-Type, Accept, Authorization");

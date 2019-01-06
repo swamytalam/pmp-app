@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ResourcePOV } from 'src/app/models/resource-pov';
-import { DataService } from 'src/app/services/data.service';
+import { ResourcePOV } from '../../../models/resource-pov';
+import { DataService } from '../../../services/data.service';
 
 @Component({
   selector: 'app-resource-pov',

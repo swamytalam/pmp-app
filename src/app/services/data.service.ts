@@ -12,6 +12,10 @@ import { TaskLog } from '../models/task-log';
 import { Resource } from '../models/resource';
 import { Department } from '../models/department';
 import { ResourcePOV } from '../models/resource-pov';
+import { Holiday } from '../models/holiday';
+import { WorkingDay } from '../models/working-day';
+import { Title } from '../models/title';
+import { Allocation } from '../models/allocation';
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -148,8 +152,39 @@ export class DataService {
       );
   }
 
+  getHolidays() {
+    return this.http.get<Holiday[]>(this.apiURL + 'holidays/' )
+      .pipe(
+        tap(holidays => this.log(`getHolidays ${JSON.stringify(holidays)}`)),
+        catchError(this.handleError('getHoldaiys', []))
+      );
+  }
+
+  getWorkingDays() {
+    return this.http.get<WorkingDay[]>(this.apiURL + 'working-days/' )
+      .pipe(
+        tap(workingDays => this.log(`getWorkingDays ${JSON.stringify(workingDays)}`)),
+        catchError(this.handleError('getWorkingDays', []))
+      );
+  }
 
 
+  getTitles() {
+    return this.http.get<Title[]>(this.apiURL + 'titles/' )
+      .pipe(
+        tap(titles => this.log(`getTitles ${JSON.stringify(titles)}`)),
+        catchError(this.handleError('getTitles', []))
+      );
+  }
+
+  getAllocations() {
+    console.log('allocations');
+    return this.http.get<Allocation[]>(this.apiURL + 'allocations/' )
+      .pipe(
+        tap(allocations => this.log(`getAllocations ${JSON.stringify(allocations)}`)),
+        catchError(this.handleError('getAllocations', []))
+      );
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
