@@ -1,10 +1,10 @@
 var sql = require("mssql");
 //Initiallising connection string
 var dbConfig = {
-  user: "otcadmin",
-  password: "Oriental#123",
-  server: "appdevmasterdb.database.windows.net",
-  database: "ecom-svc-data-packet",
+  user: "xxxx",
+  password: "xxxxx",
+  server: "xxx",
+  database: "xxxx",
   port: "1433",
   requestTimeout: '3000',
   //          debug: true,
