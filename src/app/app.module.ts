@@ -20,6 +20,7 @@ import { WorkingDayListComponent } from './components/working-day/list/working-d
 import { HolidayListComponent } from './components/holiday/list/holiday-list.component';
 import { TitleListComponent } from './components/title/list/title-list.component';
 import { AllocationListComponent } from './components/allocation/list/allocation-list.component';
+import { ResourcePlanComponent } from './components/resource/plan/resource-plan.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AllocationListComponent } from './components/allocation/list/allocation
     WorkingDayListComponent,
     HolidayListComponent,
     TitleListComponent,
-    AllocationListComponent
+    AllocationListComponent,
+    ResourcePlanComponent
   ],
   imports: [
     BrowserModule,

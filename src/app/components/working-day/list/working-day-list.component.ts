@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkingDay } from '../../../models/working-day';
-import { DataService } from './../../../services/data.service';
+import { DataService } from '../../../services/data.service';
 
 @Component({
   selector: 'app-working-day-list',

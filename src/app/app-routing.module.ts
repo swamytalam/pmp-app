@@ -13,6 +13,7 @@ import { HolidayListComponent } from './components/holiday/list/holiday-list.com
 import { WorkingDayListComponent } from './components/working-day/list/working-day-list.component';
 import { AllocationListComponent } from './components/allocation/list/allocation-list.component';
 import { TitleListComponent } from './components/title/list/title-list.component';
+import { ResourcePlanComponent } from './components/resource/plan/resource-plan.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'holidays', component: HolidayListComponent },
   { path: 'working-days', component: WorkingDayListComponent },
   { path: 'allocations', component: AllocationListComponent},
-  { path: 'titles', component: TitleListComponent}
+  { path: 'titles', component: TitleListComponent},
+  { path: 'resource-plan', component: ResourcePlanComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);

@@ -16,6 +16,7 @@ import { Holiday } from '../models/holiday';
 import { WorkingDay } from '../models/working-day';
 import { Title } from '../models/title';
 import { Allocation } from '../models/allocation';
+import { ResourcePlan } from '../models/resource-plan';
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -178,11 +179,19 @@ export class DataService {
   }
 
   getAllocations() {
-    console.log('allocations');
     return this.http.get<Allocation[]>(this.apiURL + 'allocations/' )
       .pipe(
         tap(allocations => this.log(`getAllocations ${JSON.stringify(allocations)}`)),
         catchError(this.handleError('getAllocations', []))
+      );
+  }
+
+
+  getResourcePlan() {
+    return this.http.get<ResourcePlan[]>(this.apiURL + 'resource-plan/' )
+      .pipe(
+        tap(resourcePlan => this.log(`getResourcePlan ${JSON.stringify(resourcePlan)}`)),
+        catchError(this.handleError('getResourcePlan', []))
       );
   }
 

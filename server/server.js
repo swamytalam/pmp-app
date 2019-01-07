@@ -15,7 +15,7 @@ var holidayRouter = require('./routes/holidays');
 var workingdayRouter = require('./routes/workingdays');
 var titleRouter = require('./routes/titles');
 var allocationRouter = require('./routes/allocations');
-
+var resourcePlanRouter = require('./routes/resourceplans');
 var app = express();
 
 // Setting static resource directory
@@ -33,6 +33,7 @@ app.use('/api/holidays', holidayRouter);
 app.use('/api/working-days', workingdayRouter);
 app.use('/api/titles', titleRouter);
 app.use('/api/allocations', allocationRouter);
+app.use('/api/resource-plan/', resourcePlanRouter);
 
     //CORS for Middleware
 app.use(function (req, res, next) {

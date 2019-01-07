@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Holiday } from '../../../models/holiday';
-import { DataService } from './../../../services/data.service';
+import { DataService } from '../../../services/data.service';
 
 @Component({
   selector: 'app-holiday-list',
