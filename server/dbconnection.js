@@ -1,74 +1,34 @@
-//var sql = require("mssql");
-var sql = require("pg-promise");
-//Initiallising connection string
-var dbConfig = {
-  user: "ecomdevadmin",
-  password: "ecomdevadmin123#",
-  server: "dev-ecom-rds-postgres.cvopxdeitq1r.us-west-2.rds.amazonaws.com",
-  database: "ecomdb",
-  port: "5432",
-  requestTimeout: '3000',
-  //          debug: true,
-  dialect: "mssql",
-  options: {
-    encrypt: true // Use this if you're on Windows Azure
-  }
+const logger = require('./logger');
+const dotenv = require('dotenv');
+dotenv.config();
+const Sequelize = require('sequelize');
 
-};
-
-// Function to connect to database and execute query
-var connection = {
-  executeQuery: function (res, query) {
-    var dbConn = new sql.Connection(dbConfig);
-    dbConn.connect().then(function () {
-      var request = new sql.Request(dbConn);
-
-      request.query(query).then(function (recordSet) {
-        //console.log(recordSet);
-        res.send(recordSet);
-        dbConn.close();
-      }).catch(function (err) {
-        console.log(err);
-        dbConn.close();
-      });
-    }).catch(function (err) {
-      console.log(err);
-    });
+const sequelize = new Sequelize(
+  process.env.DATABASE_NAME,
+  process.env.DATABASE_USERNAME,
+  process.env.DATABASE_PASSWORD, {
+  host: process.env.DATABASE_URL,
+  dialect: process.env.DATABASE_DIALECT, // or 'sqlite', 'postgres', 'mariadb'
+  port: process.env.DATABASE_PORT, // or 5432 (for postgres)
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
   },
-  executeInsertQuery: function (res, query) {
-    var dbConn = new sql.Connection(dbConfig);
-    dbConn
-      .connect()
-      .then(function () {
-        var transaction = new sql.Transaction(dbConn);
-        transaction
-          .begin()
-          .then(function () {
-            var request = new sql.Request(transaction);
-            request.query(query).then(function () {
-              transaction
-                .commit()
-                .then(function () {
-                  res.send({
-                    status: "success"
-                  });
-                  dbConn.close();
-                })
-                .catch(function (err) {
-                  console.log("Error in Transaction Commit " + err);
-                  dbConn.close();
-                });
-            });
-          })
-          .catch(function (err) {
-            console.log(err);
-            dbConn.close();
-          });
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-  }
+  logging: console.log
+});
+
+const models = {
+  Holiday: sequelize.import('./pg-models/holiday.js')
 };
 
-module.exports = connection;
+Object.keys(models).forEach(key => {
+  if ('associate' in models[key]) {
+    models[key].associate(models);
+  }
+});
+
+module.exports = sequelize;
+
+module.exports = models;
