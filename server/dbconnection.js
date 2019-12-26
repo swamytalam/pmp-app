@@ -1,11 +1,12 @@
-var sql = require("mssql");
+//var sql = require("mssql");
+var sql = require("pg-promise");
 //Initiallising connection string
 var dbConfig = {
-  user: "xxxx",
-  password: "xxxxx",
-  server: "xxx",
-  database: "xxxx",
-  port: "1433",
+  user: "ecomdevadmin",
+  password: "ecomdevadmin123#",
+  server: "dev-ecom-rds-postgres.cvopxdeitq1r.us-west-2.rds.amazonaws.com",
+  database: "ecomdb",
+  port: "5432",
   requestTimeout: '3000',
   //          debug: true,
   dialect: "mssql",

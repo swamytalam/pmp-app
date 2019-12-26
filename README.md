@@ -31,3 +31,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 npm install express body-parser --save
 npm install
 node server
+
+## Start Expres Server --> cd server --> node server.js  (app running n port 3000)
+## Start Angular App --> ng serve
