@@ -1,0 +1,20 @@
+<h2>Milestones</h2>
+<hr />
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>Project ID</th>
+      <th>Milestone ID</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let milestone of milestones">
+      <td> {{ milestone.project_id }} </td>
+      <td> {{ milestone.id }} </td>
+      <td> {{ milestone.name }} </td>
+      <td> {{ milestone.description }} </td>
+    </tr>
+  </tbody>
+</table>

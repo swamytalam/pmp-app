@@ -1,0 +1,14 @@
+<p>
+  Rresource POV works!
+</p>
+
+<form #resourcePOVForm="ngForm">
+
+  <div class="form-group">
+    <label>Week: </label>
+    <input type="text" name="week" [(ngModel)]="week_number" (blur)='getResourcePOV()' />
+    
+    
+  </div>
+
+</form>

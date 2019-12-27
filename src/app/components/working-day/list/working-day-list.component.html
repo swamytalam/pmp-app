@@ -1,0 +1,18 @@
+<h2>Working Days</h2>
+<hr />
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>ID</th>
+      <th>Month</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let wd of workingDays; let i =index; ">
+      <td> {{ wd.id }} </td>
+      <td> {{ wd.month }} </td>
+      <td> {{ wd.count }}  </td>
+    </tr>
+  </tbody>
+</table>

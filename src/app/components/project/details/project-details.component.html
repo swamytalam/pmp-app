@@ -1,0 +1,47 @@
+<div *ngFor="let project of projects">
+  <table style="font-family: arial; font-size:12px; width:100% ; text-align: left" cellpadding="5" cellspacing="5">
+    <tr>
+      <td> <b>ID: </b> {{ project.id }} </td>
+      <td> <b>Name: </b> {{ project.name }} </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <b> Description: </b>{{ project.description }}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <b> Objective: </b> {{ project.objective }}
+      </td>
+    </tr>
+  </table>
+</div>
+
+<br />
+<button value="Milestones" (click)="getMilestones()">Milestones</button>
+&nbsp;&nbsp;
+<button value="Tasks" (click)="getTasks()">Tasks</button>
+&nbsp;&nbsp;
+<button value="TaskPlanner" (click)="enableTaskPlanner()">Task Planner</button>
+&nbsp;&nbsp;
+<button value="ResourcePOV" (click)="getResourcePOV()">Resource Point Of View</button>
+
+
+<div *ngIf="showMilestones">
+  <app-milestone-list [milestones]=milestones> </app-milestone-list>
+</div>
+
+<div *ngIf="showTasks">
+  <app-task-list [tasks]=tasks>
+  </app-task-list>
+</div>
+
+<div *ngIf="showTaskPlanner">
+  <app-task-planner [resources]=resources [milestones]=milestones [departments]=departments [project_id]=project_id>
+  </app-task-planner>
+</div>
+
+<div *ngIf="showResourcePOV">
+  <app-resource-pov [resourcePOV]=resourcePOV [week_number]="today| date:'w'">
+  </app-resource-pov>
+</div>

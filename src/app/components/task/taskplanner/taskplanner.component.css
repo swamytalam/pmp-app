@@ -1,0 +1,10 @@
+.label {
+  cursor: default;
+  margin-left: 20px;
+  line-height: 35px;
+  font-family: tahoma;
+  font-size: 14px;
+  font-style: inherit;
+  text-overflow: inherit;
+  width: 100px;
+}

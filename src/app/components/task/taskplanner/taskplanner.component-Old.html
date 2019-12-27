@@ -1,0 +1,78 @@
+<h2> Create Task </h2>
+<h2> Create Task </h2>
+<div>
+  <form [formGroup]="taskForm" (ngSubmit)="saveTask()">
+    <div formGroupName="taskData" novalidate>
+      <label class="label">
+        Name:
+        <input formControlName="name" size="100">
+      </label>
+    </div>
+    <div formGroupName="taskData" novalidate>
+      <label  class="label">
+        Project:
+        <input formControlName="project" readonly />
+      </label>
+    </div>
+    <div formGroupName="taskData" novalidate>
+      <label class="label">
+        Milestone:
+        <select formControlName="milestone" ngModel>
+          <option [ngValue]="null" disabled>Choose Milestone</option>
+          <option *ngFor="let ms of milestones" [value]="ms.id">
+            {{ ms.name }}
+          </option>
+        </select>
+      </label>
+    </div>
+
+    <div formGroupName="taskData" novalidate>
+      <label class="label">
+        Resource:
+        <select formControlName="resource" ngModel>
+            <option [ngValue]="null" disabled>Choose Resource</option>
+            <option *ngFor="let rs of resources" [value]="rs.id">
+              {{ rs.fname }}
+            </option>
+          </select>
+      </label>
+    </div>
+    
+    <div formGroupName="taskData" novalidate>
+      <label class="label">
+        Department:
+        <select formControlName="department" ngModel>
+            <option [ngValue]="null" disabled>Choose Department</option>
+            <option *ngFor="let dept of departments" [value]="dept.id">
+              {{ dept.name }}
+            </option>
+          </select>
+      </label>
+    </div>
+    
+    <div formGroupName="taskData" novalidate>
+      <label class="label">
+        Planned Start Date:
+        <input formControlName="planned_start_date">
+      </label>
+    </div>
+    
+    <div formGroupName="taskData" novalidate>
+      <label class="label">
+        Planned End Date:
+        <input formControlName="planned_end_date">
+      </label>
+
+    </div>
+    <div formGroupName="taskData" novalidate>
+      <label class="label">
+        Status:
+        <input formControlName="status">
+      </label>
+    </div>
+    <div formGroupName="taskData" novalidate>
+      <button type="submit" [disabled]="!taskForm.valid">Submit</button>
+    </div>
+
+  </form>
+</div>

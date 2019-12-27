@@ -1,0 +1,16 @@
+<h2>Titles</h2>
+<hr />
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>ID</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tt of titles; let i =index">
+      <td> {{ tt.id }} </td>
+      <td> {{ tt.role }} </td>
+    </tr>
+  </tbody>
+</table>

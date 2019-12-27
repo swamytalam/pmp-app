@@ -1,0 +1,34 @@
+<h2>Resource Plan</h2>
+<hr />
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Role</th>
+      <th>Allocation</th>
+      <th>Percentage</th>
+      <th>Working Days</th>
+      <th>Holidays</th>
+      <th>Vacation Days</th>
+      <th>Hours Per day</th>
+      <th>Hours Allocation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rp of resourcePlan; let i =index">
+      <td> {{ rp.id }}  </td>
+      <td> {{ rp.fname }} </td>
+      <td> {{ rp.lanme }} </td>
+      <td> {{ rp.role }} </td>
+      <td> {{ rp.allocation }} </td>
+      <td> {{ rp.percentage }} </td>
+      <td> {{ rp.working_days }} </td>
+      <td> {{ rp.holidays }} </td>
+      <td> {{ rp.vacation_days }} </td>
+      <td> {{ rp.hours_per_day }} </td>
+      <td> {{ rp.total_budget_hours  * rp.percentage /100}} </td>
+    </tr>
+  </tbody>
+</table>
