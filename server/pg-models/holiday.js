@@ -1,5 +1,3 @@
-/* jshint indent: 2 */
-
 const holiday = function (sequelize, DataTypes) {
   const Holiday = sequelize.define('holiday', {
     id: {
