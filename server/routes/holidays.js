@@ -4,11 +4,13 @@ const logger = require('../logger');
 
 router.get('/', async (req, res) => {
   const holidays = await req.context.models.Holiday.findAll();
+  logger.info('find all holidays', holidays);
   return res.send(holidays);
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/year/:id', async (req, res) => {
   const holidays = await req.context.models.Holiday.findByYearId(req.params.id);
+  logger.info('find holiday by year id', holidays);
   return res.send(holidays);
 });
 

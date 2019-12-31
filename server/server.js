@@ -14,8 +14,8 @@ const sequelize = require('./dbconnection');
 // use it before all route definitions
 //app.use(cors({origin: 'http://localhost:4200'}));
 
-// var projectRouter = require('./routes/projects');
-// var milestoneRouter = require('./routes/milestones');
+var projectRouter = require('./routes/projects');
+var milestoneRouter = require('./routes/milestones');
 // var taskRouter = require('./routes/tasks');
 // var resourceRouter = require('./routes/resources');
 // var departmentRouter = require('./routes/departments');
@@ -23,7 +23,7 @@ const sequelize = require('./dbconnection');
 var holidayRouter = require('./routes/holidays');
 // var workingdayRouter = require('./routes/workingdays');
 // var titleRouter = require('./routes/titles');
-// var allocationRouter = require('./routes/allocations');
+var allocationRouter = require('./routes/allocations');
 // var resourcePlanRouter = require('./routes/resourceplans');
 var app = express();
 
@@ -39,16 +39,16 @@ app.use(async (req, res, next) => {
   };
   next();
 });
-// app.use('/api/projects/', projectRouter);
-// app.use('/api/milestones/', milestoneRouter);
+app.use('/api/projects/', projectRouter); // Done
+app.use('/api/milestones/', milestoneRouter);
 // app.use('/api/tasks/', taskRouter);
 // app.use('/api/resources', resourceRouter);
 // app.use('/api/departments', departmentRouter);
 // app.use('/api/resource-pov', resourcePOVRouter);
-app.use('/api/holidays', holidayRouter);
+app.use('/api/holidays', holidayRouter); //Done
 // app.use('/api/working-days', workingdayRouter);
 // app.use('/api/titles', titleRouter);
-// app.use('/api/allocations', allocationRouter);
+app.use('/api/allocations', allocationRouter);
 // app.use('/api/resource-plan/', resourcePlanRouter);
 
 //CORS for Middleware
