@@ -1,13 +1,18 @@
 var express = require("express");
 var router = express.Router();
-var Allocation = require("../models/allocation");
 
-router.get("/", function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-  res.setHeader('Access-Control-Allow-Credentials', true); // If needed
-  Allocation.getAllocations(req, res, Allocation.getCallBackFunction);
+const logger = require('../logger');
+
+router.get('/', async (req, res) => {
+  const allocation = await req.context.models.Allocation.findAll();
+  logger.info('Find All');
+  return res.send(allocation);
+});
+
+router.get('/:id', async (req, res) => {
+  const allocation = await req.context.models.Allocation.findByAllocationId(req.params.id);
+  logger.info('find by allocation id', allocation);
+  return res.send(allocation);
 });
 
 module.exports = router;

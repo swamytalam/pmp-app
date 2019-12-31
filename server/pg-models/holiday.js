@@ -19,7 +19,11 @@ const holiday = function (sequelize, DataTypes) {
     },
     year_id: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'ref_year',
+        key: 'id'
+      }
     }
   }, {
     tableName: 'holiday',
