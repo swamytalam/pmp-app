@@ -17,8 +17,8 @@ const sequelize = require('./dbconnection');
 var projectRouter = require('./routes/projects');
 var milestoneRouter = require('./routes/milestones');
 // var taskRouter = require('./routes/tasks');
-// var resourceRouter = require('./routes/resources');
-// var departmentRouter = require('./routes/departments');
+var resourceRouter = require('./routes/resources');
+var departmentRouter = require('./routes/departments');
 // var resourcePOVRouter = require('./routes/resource-pov');
 var holidayRouter = require('./routes/holidays');
 // var workingdayRouter = require('./routes/workingdays');
@@ -39,13 +39,13 @@ app.use(async (req, res, next) => {
   };
   next();
 });
-app.use('/api/projects/', projectRouter); // Done
+app.use('/api/projects/', projectRouter);
 app.use('/api/milestones/', milestoneRouter);
 // app.use('/api/tasks/', taskRouter);
-// app.use('/api/resources', resourceRouter);
-// app.use('/api/departments', departmentRouter);
+app.use('/api/resources', resourceRouter);
+app.use('/api/departments', departmentRouter);
 // app.use('/api/resource-pov', resourcePOVRouter);
-app.use('/api/holidays', holidayRouter); //Done
+app.use('/api/holidays', holidayRouter);
 // app.use('/api/working-days', workingdayRouter);
 // app.use('/api/titles', titleRouter);
 app.use('/api/allocations', allocationRouter);

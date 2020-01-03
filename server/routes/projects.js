@@ -5,13 +5,15 @@ const logger = require('../logger');
 
 
 router.get('/', async (req, res) => {
-  const holidays = await req.context.models.Project.findAll();
-  return res.send(holidays);
+  const projects = await req.context.models.Project.findAll();
+  logger.info('find all projects', projects);
+  return res.send(projects);
 });
 
 router.get('/:id', async (req, res) => {
-  const holidays = await req.context.models.Project.findByProjectId(req.params.id);
-  return res.send(holidays);
+  const projects = await req.context.models.Project.findByProjectId(req.params.id);
+  logger.info('find project by id', projects);
+  return res.send(projects);
 });
 
 

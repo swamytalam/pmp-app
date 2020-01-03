@@ -4,15 +4,15 @@ var router = express.Router();
 const logger = require('../logger');
 
 router.get('/', async (req, res) => {
-  const holidays = await req.context.models.Holiday.findAll();
-  logger.info('find all holidays', holidays);
-  return res.send(holidays);
+  const Resource = await req.context.models.Resource.findAll();
+  logger.info('find all resource', Resource);
+  return res.send(Resource);
 });
 
-router.get('/year/:id', async (req, res) => {
-  const holidays = await req.context.models.Holiday.findByYearId(req.params.id);
-  logger.info('find holiday by year id', holidays);
-  return res.send(holidays);
+router.get('/department/:id', async (req, res) => {
+  const Resource = await req.context.models.Resource.findByResourceDepartmentId(req.params.id);
+  logger.info('find resource by id', Resource);
+  return res.send(Resource);
 });
 
 
