@@ -5,7 +5,7 @@ const logger = require('../logger');
 
 router.get('/', async (req, res) => {
   const allocation = await req.context.models.Allocation.findAll();
-  logger.info('Find All');
+  logger.info('find all allocation');
   return res.send(allocation);
 });
 
