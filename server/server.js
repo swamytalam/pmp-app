@@ -7,12 +7,6 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 const models = require('./dbconnection');
-const sequelize = require('./dbconnection');
-
-
-//var cors = require('cors');
-// use it before all route definitions
-//app.use(cors({origin: 'http://localhost:4200'}));
 
 var projectRouter = require('./routes/projects');
 var milestoneRouter = require('./routes/milestones');
@@ -26,6 +20,10 @@ var holidayRouter = require('./routes/holidays');
 var allocationRouter = require('./routes/allocations');
 // var resourcePlanRouter = require('./routes/resourceplans');
 var app = express();
+
+var cors = require('cors');
+// use it before all route definitions
+app.use(cors({origin: 'http://localhost:4200'}));
 
 // Setting static resource directory
 app.use(express.static('public'))
